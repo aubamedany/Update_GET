@@ -32,7 +32,7 @@ def fit_models(args):
     if(args.use_oc):
         secondary_log_folder = os.path.join(args.log, f"log_results_{args.dataset}_{args.lamda1}_OC_LOSS")
     else:
-        secondary_log_folder = os.path.join(args.log, f"log_results_haha{args.dataset}_{args.lamda1}")
+        secondary_log_folder = os.path.join(args.log, f"log_results_{args.dataset}_{args.lamda1}")
     if not os.path.exists(secondary_log_folder):
         os.mkdir(secondary_log_folder)
     args.secondary_log_folder = secondary_log_folder
