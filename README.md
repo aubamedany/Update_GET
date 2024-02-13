@@ -9,13 +9,15 @@ We use Pytorch 1.9.1 and python 3.6. Other requirements are in requirements.txt.
 ```
 pip install -r requirements.txt
 ```
-
+## Log
+Create folder **logs/get** to store log.
 ## Data 
 
- We utilize two widely used datasets. 
+We utilize two widely used datasets. 
 
-* Snopes: http://resources.mpi-inf.mpg.de/impact/dl_cred_analysis/Snopes.zip
-* PolitiFact: http://resources.mpi-inf.mpg.de/impact/dl_cred_analysis/PolitiFact.zip
+Create a new folder named **embedding** to store embedding word.
+
+Go to http://nlp.stanford.edu/data/glove.6B.zip to download embedding word and store to **embedding** folder
 
 ## Usage
 
@@ -41,34 +43,21 @@ python MasterFC/master_get.py --dataset="Snopes" \
                              --lr=0.0001 \
                              --gnn_dropout=0.2 \
                              --seed=123756 \
-                             --gsl_rate=0.6
-```
+                             --gsl_rate=0.6 \
+                             --lamda1=0.4 \
+                             --lamda2=0.01 \
+                             --use_oc=True
+```    
 
 You can also simply run the bash script.
-
 ```
-sh run_snopes.sh
+sh run.sh  (run all experiments)
+```
+or
+```
+sh run_snopes.sh (on Snopes dataset)
 ```
 or
 ``` 
 sh run_politifact.sh (on the PolitiFact dataset)
 ```
-
-## Citation
-
-Please cite our paper if you use the code:
-
-```
-@misc{xu2022evidenceaware,
-      title={Evidence-aware Fake News Detection with Graph Neural Networks},
-      author={Weizhi Xu and Junfei Wu and Qiang Liu and Shu Wu and Liang Wang},
-      year={2022},
-      eprint={2201.06885},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-
-```
-
-## Acknowledgement
-The general structure of our codes inherites from the open-source codes of [MAC](https://github.com/nguyenvo09/EACL2021), we thank them for their great contribution to the research community of fake news detection.
